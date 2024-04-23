@@ -2,7 +2,22 @@
 2018.2
 Jun 14 2018
 20:41:02
+D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sim_1/new/CPU_TB.vhd,1713859829,vhdl,,,,cpu_tb,,,,,,,,
 D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sim_1/new/TB_Add_Sub_Unit.vhd,1713762568,vhdl,,,,tb_add_sub_unit,,,,,,,,
 D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/Add_Sub_Unit.vhd,1713636577,vhdl,,,,add_sub_unit,,,,,,,,
+D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/CPU.vhd,1713860075,vhdl,,,,cpu,,,,,,,,
+D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/D_FF.vhd,1713618974,vhdl,,,,d_ff,,,,,,,,
+D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/Decoder_3_to_8.vhd,1713618974,vhdl,,,,decoder_3_to_8,,,,,,,,
+D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/Eight_way_4_bit_Mux.vhd,1713618982,vhdl,,,,eight_way_4_bit_mux,,,,,,,,
 D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/FA.vhd,1713618974,vhdl,,,,fa,,,,,,,,
 D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/HA.vhd,1713618974,vhdl,,,,ha,,,,,,,,
+D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/Instruction_Decoder.vhd,1713618982,vhdl,,,,instruction_decoder,,,,,,,,
+D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/Partial_Full_Adder.vhd,1713618974,vhdl,,,,partial_full_adder,,,,,,,,
+D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/Program_ROM.vhd,1713618982,vhdl,,,,program_rom,,,,,,,,
+D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/Program_counter.vhd,1713618982,vhdl,,,,program_counter,,,,,,,,
+D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/Register_4bit.vhd,1713618982,vhdl,,,,register_4bit,,,,,,,,
+D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/Register_Bank.vhd,1713626150,vhdl,,,,register_bank,,,,,,,,
+D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/Slow_Clk.vhd,1713636917,vhdl,,,,slow_clk,,,,,,,,
+D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/Three_BIt_Adder.vhd,1713618974,vhdl,,,,three_bit_adder,,,,,,,,
+D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/Two_way_3_bit_Mux.vhd,1713618982,vhdl,,,,two_way_3_bit_mux,,,,,,,,
+D:/Xilinx/Vivado/projects/Nano_Processor_Design/Nano_Processor_Design/Nano_Processor_Design/nano-processor-design-v1/Nano_processor_v1.srcs/sources_1/new/Two_way_4_bit_Mux.vhd,1713618982,vhdl,,,,two_way_4_bit_mux,,,,,,,,

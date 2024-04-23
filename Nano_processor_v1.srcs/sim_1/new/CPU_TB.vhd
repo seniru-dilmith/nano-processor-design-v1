@@ -53,48 +53,18 @@ begin
     -- Clock process
     ClkProcess: process
     begin
-        while now < 100 ns loop  -- Simulate for 100 ns
-            Clk_TB <= '0';
-            wait for 5 ns;
-            Clk_TB <= '1';
-            wait for 5 ns;
-        end loop;
-        wait;
+        Clk_TB <= '0';
+        wait for 5 ns;
+        Clk_TB <= '1';
+        wait for 5 ns;
     end process ClkProcess;
 
     process begin
-    -- Test Case 1: Simple Add
     Reset_TB <= '1';
     wait for 10 ns;
     Reset_TB <= '0';
-    wait for 10 ns;
-
-    -- Test Case 2: Simple Subtract
-    Reset_TB <= '1';
-    wait for 10 ns;
-    Reset_TB <= '0';
-    wait for 10 ns;
-
-    -- Test Case 3: Overflow
-    Reset_TB <= '1';
-    wait for 10 ns;
-    Reset_TB <= '0';
-    wait for 10 ns;
-
-    -- Test Case 4: Zero Result
-    Reset_TB <= '1';
-    wait for 10 ns;
-    Reset_TB <= '0';
-    wait for 10 ns;
-
-    -- Test Case 5: Jump Instruction
-    Reset_TB <= '1';
-    wait for 10 ns;
-    Reset_TB <= '0';
-    wait for 10 ns;
-
-    -- End simulation
     wait;
     end process;
+    
 end Behavioral;
 

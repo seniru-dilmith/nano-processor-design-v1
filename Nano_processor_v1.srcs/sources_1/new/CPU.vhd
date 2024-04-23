@@ -132,10 +132,10 @@ component Program_counter is
            );
 end component;
 
-component Slow_Clk is
-    Port ( Clk_in : in STD_LOGIC;
-           Clk_out : out STD_LOGIC);
-end component;
+--component Slow_Clk is
+--    Port ( Clk_in : in STD_LOGIC;
+--           Clk_out : out STD_LOGIC);
+--end component;
 
 signal Load_Sel :  STD_LOGIC;  --Load Selector
 signal Global_Clk :  STD_LOGIC;  --Clock for every component
@@ -157,17 +157,17 @@ signal Ins_Jmp : STD_LOGIC; --  Jump Instruction is Detected or Not
 
 begin
 
-slw_clk : Slow_Clk port map(
-             Clk_in => Clk,
-             Clk_out => Global_Clk
-            ); 
+--slw_clk : Slow_Clk port map(
+--             Clk_in => Clk,
+--             Clk_out => Global_Clk
+--            ); 
 
 
 
 reg_bank : Register_Bank port map( 
            D => D, 
            Res => Reset, 
-           Clk => Global_Clk, 
+           Clk => Clk, 
            Register_Select => Reg_EN, 
            R_0_val => R_0_out, 
            R_1_val => R_1_out, 
@@ -258,7 +258,7 @@ mux_2_way_3bit : Two_way_3_bit_Mux port map(
 
 PC : Program_counter port map(
            Reset => Reset,
-           Clk => Global_Clk, 
+           Clk => Clk, 
            In_Address => Address_to_Execute, 
            Out_Address => Memory_Selector
            );
