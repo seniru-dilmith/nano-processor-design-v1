@@ -22,78 +22,107 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
 entity TB_Add_Sub_Unit is
---  Port ( );
 end TB_Add_Sub_Unit;
 
 architecture Behavioral of TB_Add_Sub_Unit is
+    -- Component declaration for the Add_Sub_Unit module
+    component Add_Sub_Unit is
+        Port ( 
+            A : in STD_LOGIC_VECTOR (3 downto 0);
+            B : in STD_LOGIC_VECTOR (3 downto 0);
+            Sel : in STD_LOGIC;
+            Sum : out STD_LOGIC_VECTOR (3 downto 0);
+            C_out : out STD_LOGIC;
+            Pos_or_Neg : out STD_LOGIC;
+            Zero : out STD_LOGIC
+        );
+    end component;
 
-COMPONENT Add_Sub_Unit
-    Port ( A : in STD_LOGIC_VECTOR (3 downto 0);
-        B : in STD_LOGIC_VECTOR (3 downto 0);
-        Sel : in STD_LOGIC;
-        Sum : out STD_LOGIC_VECTOR (3 downto 0);
-        C_out : out STD_LOGIC;
-        Zero : out STD_LOGIC
-);
+    -- Signals for testbench
+    signal A_tb, B_tb : STD_LOGIC_VECTOR (3 downto 0);
+    signal Sel_tb : STD_LOGIC;
+    signal Sum_tb : STD_LOGIC_VECTOR (3 downto 0);
+    signal C_out_tb, Pos_or_Neg_tb, Zero_tb : STD_LOGIC;
 
-END COMPONENT;
- 
---Inputs
-signal A : std_logic_vector(3 downto 0);
-signal B : std_logic_vector(3 downto 0);
-signal Sel : std_logic;
-signal Zero : std_logic;
- 
---Outputs
-signal Sum : std_logic_vector(3 downto 0);
-signal C_out : std_logic;
- 
-BEGIN
- 
--- Instantiate the Unit Under Test (UUT)
-uut: Add_Sub_Unit PORT MAP (
-A => A,
-B => B,
-Sel => Sel,
-Sum => Sum,
-C_out => C_out,
-Zero => Zero
-);
- 
--- Stimulus process
-stim_proc: process
 begin
--- hold reset state for 100 ns.
-wait for 10 ns;
- 
-A <= "0011";
-B <= "0100";
-Sel <= '1';
- 
-wait for 10 ns;
- 
---A <= "1010";
---B <= "0111";
---Sel <= '0';
- 
-wait for 10 ns;
- 
---A <= "1000";
---B <= "1001";
---Sel <= '0';
- 
-wait;
- 
-end process;
- 
-END;
+
+    -- Instantiate the Add_Sub_Unit module
+    UUT : Add_Sub_Unit port map (
+        A => A_tb,
+        B => B_tb,
+        Sel => Sel_tb,
+        Sum => Sum_tb,
+        C_out => C_out_tb,
+        Pos_or_Neg => Pos_or_Neg_tb,
+        Zero => Zero_tb
+    );
+
+    -- Stimulus process
+    stimulus: process
+    begin
+        -- Test Case 1: Addition (Sel = '0')
+        A_tb <= "0010";
+        B_tb <= "0001";
+        Sel_tb <= '0';
+        wait for 10 ns;
+
+        -- Test Case 2: Subtraction (Sel = '1')
+        A_tb <= "0101";
+        B_tb <= "0011";
+        Sel_tb <= '1';
+        wait for 10 ns;
+
+        -- Test Case 3: Addition (Sel = '0')
+        A_tb <= "1111";
+        B_tb <= "1010";
+        Sel_tb <= '0';
+        wait for 10 ns;
+
+        -- Test Case 4: Subtraction (Sel = '1')
+        A_tb <= "0100";
+        B_tb <= "0011";
+        Sel_tb <= '1';
+        wait for 10 ns;
+
+        -- Test Case 5: Addition (Sel = '0')
+        A_tb <= "1111";
+        B_tb <= "0001";
+        Sel_tb <= '0';
+        wait for 10 ns;
+
+        -- Test Case 6: Subtraction (Sel = '1')
+        A_tb <= "0000";
+        B_tb <= "0101";
+        Sel_tb <= '1';
+        wait for 10 ns;
+
+        -- Test Case 7: Addition (Sel = '0')
+        A_tb <= "1100";
+        B_tb <= "0011";
+        Sel_tb <= '0';
+        wait for 10 ns;
+
+        -- Test Case 8: Subtraction (Sel = '1')
+        A_tb <= "1000";
+        B_tb <= "0100";
+        Sel_tb <= '1';
+        wait for 10 ns;
+
+        -- Test Case 9: Addition (Sel = '0')
+        A_tb <= "1010";
+        B_tb <= "1100";
+        Sel_tb <= '0';
+        wait for 10 ns;
+
+        -- Test Case 10: Subtraction (Sel = '1')
+        A_tb <= "0111";
+        B_tb <= "0101";
+        Sel_tb <= '1';
+        wait for 10 ns;
+
+        wait;
+    end process;
+
+end Behavioral;
+
