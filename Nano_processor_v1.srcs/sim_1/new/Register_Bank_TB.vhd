@@ -78,13 +78,22 @@ begin
     end process;
 
     -- Stimulus process
+    process
+    begin
+       Res_tb <= '1';  -- Assert reset
+       wait for 10 ns;
+       Res_tb <= '0';  -- De-assert reset
+       wait for 240ns;
+       
+       Res_tb <= '1';  -- Assert reset
+       wait for 10 ns;
+       Res_tb <= '0';  -- De-assert reset
+       wait;
+        
+    end process;
+    
     stimulus: process
     begin
-        -- Test Case 1: Apply reset at the beginning
-        Res_tb <= '1';  -- Assert reset
-        wait for 10 ns;
-        Res_tb <= '0';  -- De-assert reset
-        wait for 20 ns;
 
         -- Test Case 2: Change input data and register selection
         D_tb <= "1010";
@@ -97,10 +106,6 @@ begin
         wait for 20 ns;
 
         -- Test Case 4: Apply reset again
-        Res_tb <= '1';  -- Assert reset
-        wait for 10 ns;
-        Res_tb <= '0';  -- De-assert reset
-        wait for 20 ns;
 
         -- Test Case 5: Change input data and register selection
         D_tb <= "1100";
@@ -128,10 +133,18 @@ begin
         wait for 20 ns;
 
         -- Test Case 10: Change input data and register selection
-        D_tb <= "0000";
+        D_tb <= "0100";
         Register_Select_tb <= "000";
         wait for 20 ns;
-
+        
+        D_tb <= "0111";
+        Register_Select_tb <= "001";
+        wait for 20 ns;
+                
+        D_tb <= "0010";
+        Register_Select_tb <= "001";
+        wait for 20 ns;
+        
         wait;
     end process;
 

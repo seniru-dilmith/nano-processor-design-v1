@@ -36,6 +36,13 @@ entity CPU is
            Reset: in STD_LOGIC;
            OverFlow: out STD_LOGIC;
            Zero: out STD_LOGIC;
+           DataSel : out STD_LOGIC;
+           regSel : out STD_LOGIC_VECTOR(2 downto 0);
+           regData : out STD_LOGIC_VECTOR(3 downto 0);
+           InsId : out STD_LOGIC_VECTOR(2 downto 0);
+           Ins : out STD_LOGIC_VECTOR(11 downto 0); 
+           ImValue : out STD_LOGIC_VECTOR(3 downto 0);
+           AUout : out STD_LOGIC_VECTOR(3 downto 0);
            reg_0_out_check: out STD_LOGIC_VECTOR (3 downto 0);
            reg_1_out_check: out STD_LOGIC_VECTOR (3 downto 0);
            reg_2_out_check: out STD_LOGIC_VECTOR (3 downto 0);
@@ -173,6 +180,14 @@ reg_4_out_check <= R_4_out;
 reg_5_out_check <= R_5_out;
 reg_6_out_check <= R_6_out;
 reg_7_out_check <= R_7_out;
+
+regSel <= Reg_EN;
+regData <= D;
+InsId <= Memory_Selector;
+Ins <= I;
+ImValue <= R;
+AUout <= M;
+DataSel <= Load_sel;
 
 --slw_clk : Slow_Clk port map(
 --             Clk_in => Clk,

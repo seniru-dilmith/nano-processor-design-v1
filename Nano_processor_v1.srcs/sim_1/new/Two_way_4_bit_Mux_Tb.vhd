@@ -51,7 +51,7 @@ begin
 UUT : Two_way_4_bit_Mux port map (In0,In1,Sel,Output);
 process 
 begin
-    In0<= "1110";
+--    In0<= "1110";
     In1<="1101";
     sel<= '0';
     wait for 100ns;
