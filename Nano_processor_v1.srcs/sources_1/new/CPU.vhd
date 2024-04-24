@@ -35,7 +35,15 @@ entity CPU is
     Port ( Clk : in STD_LOGIC;
            Reset: in STD_LOGIC;
            OverFlow: out STD_LOGIC;
-           Zero: out STD_LOGIC
+           Zero: out STD_LOGIC;
+           reg_0_out_check: out STD_LOGIC_VECTOR (3 downto 0);
+           reg_1_out_check: out STD_LOGIC_VECTOR (3 downto 0);
+           reg_2_out_check: out STD_LOGIC_VECTOR (3 downto 0);
+           reg_3_out_check: out STD_LOGIC_VECTOR (3 downto 0);
+           reg_4_out_check: out STD_LOGIC_VECTOR (3 downto 0);
+           reg_5_out_check: out STD_LOGIC_VECTOR (3 downto 0);
+           reg_6_out_check: out STD_LOGIC_VECTOR (3 downto 0);
+           reg_7_out_check: out STD_LOGIC_VECTOR (3 downto 0)
     );
 end CPU;
 
@@ -156,6 +164,15 @@ signal Ins_Jmp : STD_LOGIC; --  Jump Instruction is Detected or Not
 
 
 begin
+
+reg_0_out_check <= R_0_out;
+reg_1_out_check <= R_1_out;
+reg_2_out_check <= R_2_out;
+reg_3_out_check <= R_3_out;
+reg_4_out_check <= R_4_out;
+reg_5_out_check <= R_5_out;
+reg_6_out_check <= R_6_out;
+reg_7_out_check <= R_7_out;
 
 --slw_clk : Slow_Clk port map(
 --             Clk_in => Clk,

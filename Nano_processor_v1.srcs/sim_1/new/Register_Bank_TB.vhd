@@ -71,13 +71,10 @@ begin
     -- Clock process
     clk_process: process
     begin
-        while now < 250 ns loop  -- Simulate for 100 ns
-            Clk_tb <= '0';
-            wait for 5 ns;
-            Clk_tb <= '1';
-            wait for 5 ns;
-        end loop;
-        wait;
+        Clk_tb <= '0';
+        wait for 5 ns;
+        Clk_tb <= '1';
+        wait for 5 ns;
     end process;
 
     -- Stimulus process

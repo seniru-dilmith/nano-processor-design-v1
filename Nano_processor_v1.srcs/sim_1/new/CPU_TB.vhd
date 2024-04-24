@@ -31,7 +31,15 @@ architecture Behavioral of CPU_TB is
         Port ( Clk : in STD_LOGIC;
                Reset: in STD_LOGIC;
                OverFlow: out STD_LOGIC;
-               Zero: out STD_LOGIC
+               Zero: out STD_LOGIC;
+               reg_0_out_check: out STD_LOGIC_VECTOR (3 downto 0);
+               reg_1_out_check: out STD_LOGIC_VECTOR (3 downto 0);
+               reg_2_out_check: out STD_LOGIC_VECTOR (3 downto 0);
+               reg_3_out_check: out STD_LOGIC_VECTOR (3 downto 0);
+               reg_4_out_check: out STD_LOGIC_VECTOR (3 downto 0);
+               reg_5_out_check: out STD_LOGIC_VECTOR (3 downto 0);
+               reg_6_out_check: out STD_LOGIC_VECTOR (3 downto 0);
+               reg_7_out_check: out STD_LOGIC_VECTOR (3 downto 0)
         );
     end component;
 
@@ -39,6 +47,7 @@ architecture Behavioral of CPU_TB is
     signal Clk_TB: STD_LOGIC := '0';
     signal Reset_TB: STD_LOGIC := '0';
     signal OverFlow_TB, Zero_TB: STD_LOGIC;
+    signal reg_0_out_check_TB, reg_1_out_check_TB, reg_2_out_check_TB, reg_3_out_check_TB, reg_4_out_check_TB, reg_5_out_check_TB, reg_6_out_check_TB, reg_7_out_check_TB: STD_LOGIC_VECTOR (3 downto 0);
 
 begin
 
@@ -47,7 +56,15 @@ begin
         Clk => Clk_TB,
         Reset => Reset_TB,
         OverFlow => OverFlow_TB,
-        Zero => Zero_TB
+        Zero => Zero_TB,
+        reg_0_out_check => reg_0_out_check_TB,
+        reg_1_out_check => reg_1_out_check_TB,
+        reg_2_out_check => reg_2_out_check_TB,
+        reg_3_out_check => reg_3_out_check_TB,
+        reg_4_out_check => reg_4_out_check_TB,
+        reg_5_out_check => reg_5_out_check_TB,
+        reg_6_out_check => reg_6_out_check_TB,
+        reg_7_out_check => reg_7_out_check_TB
     );
 
     -- Clock process
