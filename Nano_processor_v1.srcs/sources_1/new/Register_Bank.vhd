@@ -43,7 +43,6 @@ entity Register_Bank is
            R_5_val : out STD_LOGIC_VECTOR (3 downto 0);
            R_6_val : out STD_LOGIC_VECTOR (3 downto 0);
            R_7_val : out STD_LOGIC_VECTOR (3 downto 0)
-           
            );  -- Output data from selected register
 end Register_Bank;
 

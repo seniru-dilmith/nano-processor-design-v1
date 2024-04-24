@@ -35,16 +35,7 @@ entity CPU is
     Port ( Clk : in STD_LOGIC;
            Reset: in STD_LOGIC;
            OverFlow: out STD_LOGIC;
-           Zero: out STD_LOGIC;
-           load_sela: out STD_LOGIC;
-           add_sub_sela: out STD_LOGIC;
-           jump_flag: out STD_LOGIC;
-           reg_ena : out STD_LOGIC_VECTOR(2 downto 0);
-           reg_sel1 : out STD_LOGIC_VECTOR(2 downto 0);
-           reg_sel2 : out STD_LOGIC_VECTOR(2 downto 0);
-           add_to_jmp : out STD_LOGIC_VECTOR(2 downto 0);
-           imm_value : out STD_LOGIC_VECTOR(3 downto 0);
-           reg1_out : out STD_LOGIC_VECTOR(3 downto 0)
+           Zero: out STD_LOGIC
     );
 end CPU;
 
@@ -170,15 +161,7 @@ begin
 --             Clk_in => Clk,
 --             Clk_out => Global_Clk
 --            ); 
-load_sela <= load_sel;
-add_sub_sela <= add_sub_sel;
-jump_flag <= ins_jmp;
-reg_ena <= reg_en;
-reg_sel1 <= eight_way_mux0_sel;
-reg_sel2 <= eight_way_mux1_sel;
-add_to_jmp <= Ins_Address_frm_Pgram;
-imm_value <= R;
-reg1_out <= R_1_out;
+
 
 
 reg_bank : Register_Bank port map( 
