@@ -37,7 +37,7 @@ end Instruction_Decoder;
 architecture Behavioral of Instruction_Decoder is
 
 begin
-    process (Ins_Bus,Reg_Chk_Jmp) begin
+    process (Ins_Bus, Reg_Chk_Jmp) begin
         Reg_En <= Ins_Bus(9 downto 7);
         case Ins_Bus(11 downto 10) is
         
@@ -45,15 +45,9 @@ begin
                 Load_Sel <= '1';
                 Reg_Sel1 <= Ins_Bus(9 downto 7);
                 Reg_Sel2 <= Ins_Bus(6 downto 4);
-                Imm_Val <= Ins_Bus(3 downto 0);
                 Add_Sub_Sel <= '0';
                 Jmp <= '0';
-
-            when "10" =>
-                Load_Sel <= '0';
-                Imm_Val <= Ins_Bus(3 downto 0);
-                Jmp <= '0';
-                                
+                
             when "01" =>
                 Load_Sel <= '1';
                 Reg_Sel1 <= "000";
@@ -61,7 +55,11 @@ begin
                 Reg_Sel2 <= Ins_Bus(9 downto 7);
                 Jmp <= '0';
                 Add_Sub_Sel <= '1';
+                
+            when "10" =>
+                Load_Sel <= '0';
                 Imm_Val <= Ins_Bus(3 downto 0);
+                Jmp <= '0';
             
             when "11" =>
                 Load_Sel <= '0';
