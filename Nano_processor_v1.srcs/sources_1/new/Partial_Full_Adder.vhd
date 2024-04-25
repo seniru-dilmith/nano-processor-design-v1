@@ -33,11 +33,11 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity Partial_Full_Adder is
     --  Port ( );
-    Port ( A : in STD_LOGIC;
-    B : in STD_LOGIC;
-    Cin : in STD_LOGIC;
-    S : out STD_LOGIC;
-    P : out STD_LOGIC;
+    Port ( A : in STD_LOGIC;  -- input bit 1
+    B : in STD_LOGIC;  -- input bit 2
+    Cin : in STD_LOGIC;  -- carry bit in
+    S : out STD_LOGIC;  -- result sum bit
+    P : out STD_LOGIC;  -- 
     G : out STD_LOGIC);
 end Partial_Full_Adder;
 

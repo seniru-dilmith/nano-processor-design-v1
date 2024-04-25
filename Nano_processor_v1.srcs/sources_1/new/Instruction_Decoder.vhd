@@ -38,9 +38,9 @@ architecture Behavioral of Instruction_Decoder is
 
 begin
     process (Ins_Bus, Reg_Chk_Jmp) begin
-        Reg_En <= Ins_Bus(9 downto 7);
+        Reg_En <= Ins_Bus(9 downto 7);  -- register enable signal
         case Ins_Bus(11 downto 10) is
-        
+            -- connectiong to different lines based o the instruction type
             when "00" =>
                 Load_Sel <= '1';
                 Reg_Sel1 <= Ins_Bus(9 downto 7);
@@ -72,7 +72,7 @@ begin
                     Jmp <= '0';
                 end if;
             when others =>
-                
+                -- all the possible cases are mentioned sbove
         end case;
     end process;
 

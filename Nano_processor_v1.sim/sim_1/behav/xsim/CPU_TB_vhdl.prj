@@ -11,7 +11,6 @@ vhdl xil_defaultlib  \
 "../../../../Nano_processor_v1.srcs/sources_1/new/HA.vhd" \
 "../../../../Nano_processor_v1.srcs/sources_1/new/Instruction_Decoder.vhd" \
 "../../../../Nano_processor_v1.srcs/sources_1/new/LUT_16_7.vhd" \
-"../../../../Nano_processor_v1.srcs/sources_1/new/Partial_Full_Adder.vhd" \
 "../../../../Nano_processor_v1.srcs/sources_1/new/Program_ROM.vhd" \
 "../../../../Nano_processor_v1.srcs/sources_1/new/Program_counter.vhd" \
 "../../../../Nano_processor_v1.srcs/sources_1/new/Register_4bit.vhd" \

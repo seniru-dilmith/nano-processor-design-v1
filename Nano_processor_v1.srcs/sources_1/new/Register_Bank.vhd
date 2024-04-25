@@ -35,15 +35,15 @@ entity Register_Bank is
            Res : in STD_LOGIC;  -- Reset signal for all registers
            Clk : in STD_LOGIC;  -- Clock signal for all registers
            Register_Select : in STD_LOGIC_VECTOR (2 downto 0); -- Selects which register to load data into
-           R_0_val : out STD_LOGIC_VECTOR (3 downto 0);
-           R_1_val : out STD_LOGIC_VECTOR (3 downto 0);
-           R_2_val : out STD_LOGIC_VECTOR (3 downto 0);
-           R_3_val : out STD_LOGIC_VECTOR (3 downto 0);
-           R_4_val : out STD_LOGIC_VECTOR (3 downto 0);
-           R_5_val : out STD_LOGIC_VECTOR (3 downto 0);
-           R_6_val : out STD_LOGIC_VECTOR (3 downto 0);
-           R_7_val : out STD_LOGIC_VECTOR (3 downto 0)
-           );  -- Output data from selected register
+           R_0_val : out STD_LOGIC_VECTOR (3 downto 0);  -- current regsister values
+           R_1_val : out STD_LOGIC_VECTOR (3 downto 0);  -- current regsister values
+           R_2_val : out STD_LOGIC_VECTOR (3 downto 0);  -- current regsister values
+           R_3_val : out STD_LOGIC_VECTOR (3 downto 0);  -- current regsister values
+           R_4_val : out STD_LOGIC_VECTOR (3 downto 0);  -- current regsister values
+           R_5_val : out STD_LOGIC_VECTOR (3 downto 0);  -- current regsister values
+           R_6_val : out STD_LOGIC_VECTOR (3 downto 0);  -- current regsister values
+           R_7_val : out STD_LOGIC_VECTOR (3 downto 0)   -- current regsister values
+           );
 end Register_Bank;
 
 architecture Behavioral of Register_Bank is
@@ -58,6 +58,7 @@ architecture Behavioral of Register_Bank is
                );
     end component;
     
+    -- 3 to 9 decoder component
     component Decoder_3_to_8 is
         Port ( I : in STD_LOGIC_VECTOR (2 downto 0);
                EN : in STD_LOGIC;
@@ -65,10 +66,12 @@ architecture Behavioral of Register_Bank is
                );
     end component;
 
+    -- signal to store the decoder output
     signal dec_out : std_logic_vector(7 downto 0);
 
 begin
-
+    
+    -- decoder to select a register based on the register select input
     decoder: Decoder_3_to_8 port map(
         I => Register_Select,
         EN => '1',
@@ -84,6 +87,7 @@ begin
         Q => R_0_val
     );
     
+    -- Instantiate each register
     R1: Register_4bit port map (
         D => D,
         Res => Res,
@@ -92,6 +96,7 @@ begin
         Q => R_1_val
     );
     
+    -- Instantiate each register
     R2: Register_4bit port map (
         D => D,
         Res => Res,
@@ -100,6 +105,7 @@ begin
         Q => R_2_val
     );
     
+    -- Instantiate each register
     R3: Register_4bit port map (
         D => D,
         Res => Res,
@@ -108,6 +114,7 @@ begin
         Q => R_3_val
     );
     
+    -- Instantiate each register
     R4: Register_4bit port map (
         D => D,
         Res => Res,
@@ -116,6 +123,7 @@ begin
         Q => R_4_val
     );
     
+    -- Instantiate each register
     R5: Register_4bit port map (
         D => D,
         Res => Res,
@@ -124,6 +132,7 @@ begin
         Q => R_5_val
     );
     
+    -- Instantiate each register
     R6: Register_4bit port map (
         D => D,
         Res => Res,
@@ -132,6 +141,7 @@ begin
         Q => R_6_val
     );
     
+    -- Instantiate each register
     R7: Register_4bit port map (
         D => D,
         Res => Res,

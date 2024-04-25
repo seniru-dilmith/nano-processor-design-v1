@@ -33,18 +33,19 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity Add_Sub_Unit is
     Port ( 
-        A : in STD_LOGIC_VECTOR (3 downto 0);
-        B : in STD_LOGIC_VECTOR (3 downto 0);
-        Sel : in STD_LOGIC;
-        Sum : out STD_LOGIC_VECTOR (3 downto 0);
-        C_out : out STD_LOGIC;
-        Pos_or_Neg : out STD_LOGIC;
-        Zero : out STD_LOGIC
+        A : in STD_LOGIC_VECTOR (3 downto 0);  -- line 1
+        B : in STD_LOGIC_VECTOR (3 downto 0);  -- line 2
+        Sel : in STD_LOGIC; -- line selector bit
+        Sum : out STD_LOGIC_VECTOR (3 downto 0);  -- output of the add-sub-unit
+        C_out : out STD_LOGIC;  -- carry of the result 
+        Pos_or_Neg : out STD_LOGIC;  -- result is negative or positive
+        Zero : out STD_LOGIC  -- zero flag
     );
 end Add_Sub_Unit;
 
 architecture Behavioral of Add_Sub_Unit is
 
+-- previously created full adder
 component FA
      port (
          A: in std_logic;
@@ -54,10 +55,10 @@ component FA
          C_out: out std_logic);
  end component;
 
- SIGNAL FA0_S, FA0_C, FA1_S, FA1_C, FA2_S, FA2_C, FA3_S, FA3_C  : std_logic; 
- SIGNAL B0, B1, B2, B3  : std_logic; 
- SIGNAL C_out_1  : std_logic; 
- SIGNAL S_out  : std_logic_vector (3 downto 0); 
+ SIGNAL FA0_S, FA0_C, FA1_S, FA1_C, FA2_S, FA2_C, FA3_S, FA3_C  : std_logic; -- carry of the each full adder
+ SIGNAL B0, B1, B2, B3  : std_logic; -- second input for the full adders
+ SIGNAL C_out_1  : std_logic; -- final carry bit
+ SIGNAL S_out  : std_logic_vector (3 downto 0);  -- final sum 
 
 begin
 
@@ -102,8 +103,9 @@ begin
             S_out(2) <= A(2) XOR B2 XOR FA1_C;
             S_out(3) <= A(3) XOR B3 XOR FA2_C;
         
-            
-    Pos_or_Neg <= (NOT C_out_1) AND Sel;
+    -- positive or negative result calculation
+    Pos_or_Neg <= (NOT C_out_1) AND Sel; 
+    -- zero flag calculation
     Zero <= (NOT S_out(0)) AND (NOT S_out(1)) AND (NOT S_out(2)) AND (NOT S_out(3)) AND (NOT C_out_1);
 
 end Behavioral;

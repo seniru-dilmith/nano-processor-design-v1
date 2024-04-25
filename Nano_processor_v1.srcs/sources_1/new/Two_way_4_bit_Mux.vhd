@@ -42,21 +42,11 @@ architecture Behavioral of Two_way_4_bit_Mux is
 
 begin
 
+-- logics for the outputs of the multiplexer
 output(0) <= (In0(0) AND (NOT Sel)) OR (In1(0) AND Sel);
 output(1) <= (In0(1) AND (NOT Sel)) OR (In1(1) AND Sel);
 output(2) <= (In0(2) AND (NOT Sel)) OR (In1(2) AND Sel);
 output(3) <= (In0(3) AND (NOT Sel)) OR (In1(3) AND Sel);
 
-
---process (In0,In1,Sel)
---    begin
---        if Sel = '0'then
---            output <= In0;
-            
---        else
---            output <= In1;
-            
---        end if;    
---    end process;
 
 end Behavioral;
