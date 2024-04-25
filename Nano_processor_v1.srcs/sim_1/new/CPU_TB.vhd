@@ -37,30 +37,33 @@ end CPU_TB;
 
 architecture Behavioral of CPU_TB is
 
+-- component of the CPU for simulation
 component CPU
     Port ( Clk : in STD_LOGIC;
            Slow_Clk_check : out STD_LOGIC;
-                      LED : out STD_LOGIC_VECTOR (3 downto 0);
-                      LED1 : out STD_LOGIC_VECTOR (3 downto 0);
-                      LED2 : out STD_LOGIC_VECTOR (3 downto 0);
-                      LED3 : out STD_LOGIC_VECTOR (3 downto 0);
-                      LED4 : out STD_LOGIC_VECTOR (3 downto 0);
-                      LED5 : out STD_LOGIC_VECTOR (3 downto 0);
-                      LED6 : out STD_LOGIC_VECTOR (3 downto 0);
-                      LED7 : out STD_LOGIC_VECTOR (3 downto 0);
+                      reg_0_out_check : out STD_LOGIC_VECTOR (3 downto 0);  -- **
+                      reg_1_out_check : out STD_LOGIC_VECTOR (3 downto 0);  -- **
+                      reg_2_out_check : out STD_LOGIC_VECTOR (3 downto 0);  -- **
+                      reg_3_out_check : out STD_LOGIC_VECTOR (3 downto 0);  -- **
+                      reg_4_out_check : out STD_LOGIC_VECTOR (3 downto 0);  -- **
+                      reg_5_out_check : out STD_LOGIC_VECTOR (3 downto 0);  -- **
+                      reg_6_out_check : out STD_LOGIC_VECTOR (3 downto 0);  -- **
+                      reg_7_out_check : out STD_LOGIC_VECTOR (3 downto 0);  -- **
            Overflow : out STD_LOGIC;
            Zero : out STD_LOGIC;
            Reset : in STD_LOGIC);
 end component;
 
-Signal LED0, LED1, LED2, LED3, LED4, LED5, LED6, LED7 : STD_LOGIC_VECTOR(3 downto 0);
+-- 
+Signal reg_0_out_check, reg_1_out_check, reg_2_out_check, reg_3_out_check, reg_4_out_check, reg_5_out_check, reg_6_out_check, reg_7_out_check : STD_LOGIC_VECTOR(3 downto 0);  -- **
 
 Signal Clk, Res, Overflow, Zero, Slow_Clk_Check_TB : STD_LOGIC;
 
 begin
-UUT:CPU port map(Clk, Slow_Clk_Check_TB, LED0, LED1,  LED2, LED3, LED4, LED5, LED6, LED7, Overflow, Zero, Res);
+UUT:CPU port map(Clk, Slow_Clk_Check_TB, reg_0_out_check, reg_1_out_check, reg_2_out_check, reg_3_out_check, reg_4_out_check, reg_5_out_check, reg_6_out_check, reg_7_out_check, Overflow, Zero, Res); -- **
 --UUT:CPU port map(Clk, Slow_Clk_Check_TB, Overflow, Zero, Res);
 
+-- reset switch
 Process
 begin
     Res <= '1';
@@ -69,8 +72,7 @@ begin
     wait;
 end process;
 
---Res <= '0';
-
+-- clock ticking
 Clk_process : Process
 begin
     Clk <= '0';

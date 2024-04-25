@@ -36,14 +36,14 @@ entity CPU is
     Port ( Clk : in STD_LOGIC;
            Slow_Clk_check : out STD_LOGIC;
            Reset : in STD_LOGIC;
-               LED : out STD_LOGIC_VECTOR (3 downto 0);  -- these lines commented out for further checkings
-               LED1 : out STD_LOGIC_VECTOR (3 downto 0); -- of the register values, if unncessary, can be removed
-               LED2 : out STD_LOGIC_VECTOR (3 downto 0);
-               LED3 : out STD_LOGIC_VECTOR (3 downto 0);
-               LED4 : out STD_LOGIC_VECTOR (3 downto 0);
-               LED5 : out STD_LOGIC_VECTOR (3 downto 0);
-               LED6 : out STD_LOGIC_VECTOR (3 downto 0);
-               LED7 : out STD_LOGIC_VECTOR (3 downto 0);
+               reg_0_out_check : out STD_LOGIC_VECTOR (3 downto 0); -- these lines commented out for further checkings
+               reg_1_out_check : out STD_LOGIC_VECTOR (3 downto 0); -- of the register values, if unncessary, can be removed
+               reg_2_out_check : out STD_LOGIC_VECTOR (3 downto 0);
+               reg_3_out_check : out STD_LOGIC_VECTOR (3 downto 0);
+               reg_4_out_check : out STD_LOGIC_VECTOR (3 downto 0);
+               reg_5_out_check : out STD_LOGIC_VECTOR (3 downto 0);
+               reg_6_out_check : out STD_LOGIC_VECTOR (3 downto 0);
+               reg_7_out_check : out STD_LOGIC_VECTOR (3 downto 0);
            S_LED : out STD_LOGIC_VECTOR (3 downto 0);
            S_7Seg : out STD_LOGIC_VECTOR (6 downto 0);
            an : out STD_LOGIC_VECTOR (3 downto 0);
@@ -180,7 +180,7 @@ component Register_Bank is
         --RegisterBank
         Signal D, R_0_out, R_1_out, R_2_out, R_3_out, R_4_out, R_5_out, R_6_out, R_7_out : STD_LOGIC_VECTOR(3 downto 0);
     
-        --AU
+        --Add/Sub Unit
         Signal Eight_way_mux0_out, Eight_way_mux1_out, R : STD_LOGIC_VECTOR(3 downto 0);
         Signal NegPos: STD_LOGIC;
         Signal Slow_Clk_Sig: STD_LOGIC;
@@ -189,6 +189,7 @@ component Register_Bank is
         Signal M : STD_LOGIC_VECTOR(3 downto 0);
         Signal I : STD_LOGIC_VECTOR(11 downto 0);
         
+        --Seven Segment Display
         Signal S_LED_Sig : STD_LOGIC_VECTOR (3 downto 0);
         Signal S_7Seg_Sig : STD_LOGIC_VECTOR (6 downto 0);
         Signal an_Sig : STD_LOGIC_VECTOR (3 downto 0);
@@ -237,13 +238,13 @@ Seven_Segment : AU_7_seg
     S_7Seg <= S_7Seg_Sig;
     an <= an_Sig;
 
-    LED <= R_0_out;  -- these lines are connected with the signals in the entity
-    LED1 <= R_1_out; -- declaration or uncomment only if the previously mentioned signsld are
-    LED2 <= R_2_out; -- uncommented
-    LED3 <= R_3_out;
-    LED4 <= R_4_out;
-    LED5 <= R_5_out;
-    LED6 <= R_6_out;
-    LED7 <= R_7_out;
+    reg_0_out_check <= R_0_out; -- these lines are connected with the signals in the entity
+    reg_1_out_check <= R_1_out; -- declaration or uncomment only if the previously mentioned signsld are
+    reg_2_out_check <= R_2_out; -- uncommented
+    reg_3_out_check <= R_3_out;
+    reg_4_out_check <= R_4_out;
+    reg_5_out_check <= R_5_out;
+    reg_6_out_check <= R_6_out;
+    reg_7_out_check <= R_7_out;
 
 end Behavioral;
