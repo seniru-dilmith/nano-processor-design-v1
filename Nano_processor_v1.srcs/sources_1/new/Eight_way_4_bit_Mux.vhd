@@ -32,15 +32,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity Eight_way_4_bit_Mux is
-    Port ( Sel : in STD_LOGIC_VECTOR (2 downto 0);
-           In0 : in STD_LOGIC_VECTOR (3 downto 0);
-           In1 : in STD_LOGIC_VECTOR (3 downto 0);
-           In2 : in STD_LOGIC_VECTOR (3 downto 0);
-           In3 : in STD_LOGIC_VECTOR (3 downto 0);
-           In4 : in STD_LOGIC_VECTOR (3 downto 0);
-           In5 : in STD_LOGIC_VECTOR (3 downto 0);
-           In6 : in STD_LOGIC_VECTOR (3 downto 0);
-           In7 : in STD_LOGIC_VECTOR (3 downto 0);
+    Port ( Sel : in STD_LOGIC_VECTOR (2 downto 0);  -- register select
+           In0 : in STD_LOGIC_VECTOR (3 downto 0);  -- line 0
+           In1 : in STD_LOGIC_VECTOR (3 downto 0);  -- line 1
+           In2 : in STD_LOGIC_VECTOR (3 downto 0);  -- line 2
+           In3 : in STD_LOGIC_VECTOR (3 downto 0);  -- line 3
+           In4 : in STD_LOGIC_VECTOR (3 downto 0);  -- line 4
+           In5 : in STD_LOGIC_VECTOR (3 downto 0);  -- line 5
+           In6 : in STD_LOGIC_VECTOR (3 downto 0);  -- line 6
+           In7 : in STD_LOGIC_VECTOR (3 downto 0);  -- line 7
            Output : out STD_LOGIC_VECTOR (3 downto 0));
 end Eight_way_4_bit_Mux;
 
@@ -48,6 +48,7 @@ architecture Behavioral of Eight_way_4_bit_Mux is
 
 begin
 process(In0,In1,In2,In3,In4,In5,In6,In7,sel)
+    --output data lines based on the select line
     begin
         if Sel = "000" then
             Output <= In0;
@@ -68,8 +69,7 @@ process(In0,In1,In2,In3,In4,In5,In6,In7,sel)
             Output <= In5;
                                 
         elsif Sel = "110" then
-            Output <= In6;                                                                                    
-                                     
+            Output <= In6;                                                                                                   
         else 
             Output <= In7;
        end if;     

@@ -55,6 +55,7 @@ signal myOut : std_logic_vector (6 downto 0);
 
 
 begin
+-- process for counting
     process(Clk) begin
         if rising_edge(Clk) then
             temp <= temp + 1;
@@ -75,6 +76,8 @@ begin
         address => Inuput_7_seg,
         data => myOut
     );
+    
+    -- process for lighting up only one digit of the seven segment display
     process(counter,myOut) begin
         case counter is 
             when 0 =>
