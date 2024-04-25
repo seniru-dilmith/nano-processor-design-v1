@@ -57,11 +57,6 @@ Signal LED0, LED1, LED2, LED3, LED4, LED5, LED6, LED7 : STD_LOGIC_VECTOR(3 downt
 
 Signal Clk, Res, Overflow, Zero, Slow_Clk_Check_TB : STD_LOGIC;
 
---Signal pc, RegEn : STD_LOGIC_VECTOR(2 downto 0);
---Signal I : STD_LOGIC_VECTOR (11 downto 0);
---Signal LoadSel : STD_LOGIC;
---Signal RegData, LED1 : STD_LOGIC_VECTOR(3 downto 0);
-
 begin
 UUT:CPU port map(Clk, Slow_Clk_Check_TB, LED0, LED1,  LED2, LED3, LED4, LED5, LED6, LED7, Overflow, Zero, Res);
 --UUT:CPU port map(Clk, Slow_Clk_Check_TB, Overflow, Zero, Res);
