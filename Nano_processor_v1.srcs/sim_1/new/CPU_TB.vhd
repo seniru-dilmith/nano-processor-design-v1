@@ -85,3 +85,6 @@ begin
 end process;
 
 end Behavioral;
+
+-- these lines are added for check purposes. if you need to check the functionalities of the registers one by one
+-- uncomment those lines. if not keep it as it is.
