@@ -62,7 +62,7 @@ Signal Clk, Res, carry, zero : STD_LOGIC;
 
 begin
 -- port map for the CPU component
--- UUT: CPU port map(Clk, Slow_Clk_Check_TB, reg_0_out_check, reg_1_out_check, reg_2_out_check, reg_3_out_check, reg_4_out_check, reg_5_out_check, reg_6_out_check, reg_7_out_check, carry, zero, Res); -- **
+-- UUT: CPU port map(Clk, reg_0_out_check, reg_1_out_check, reg_2_out_check, reg_3_out_check, reg_4_out_check, reg_5_out_check, reg_6_out_check, reg_7_out_check, carry, zero, Res); -- **
 UUT:CPU port map(Clk, carry, zero, Res);
 
 -- reset switch

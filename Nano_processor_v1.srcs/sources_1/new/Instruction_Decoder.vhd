@@ -42,6 +42,7 @@ begin
         case Ins_Bus(11 downto 10) is
             -- connectiong to different lines based o the instruction type
             when "00" =>
+            -- ADD
                 Load_Sel <= '1';
                 Reg_Sel1 <= Ins_Bus(9 downto 7);
                 Reg_Sel2 <= Ins_Bus(6 downto 4);
@@ -49,6 +50,7 @@ begin
                 Jmp <= '0';
                 
             when "01" =>
+            -- NEG
                 Load_Sel <= '1';
                 Reg_Sel1 <= "000";
                 Add_Sub_Sel <= '1';
@@ -57,11 +59,13 @@ begin
                 Add_Sub_Sel <= '1';
                 
             when "10" =>
+            -- MOVI
                 Load_Sel <= '0';
                 Imm_Val <= Ins_Bus(3 downto 0);
                 Jmp <= '0';
             
             when "11" =>
+            -- JZR
                 Load_Sel <= '0';
                 Reg_Sel1 <= Ins_Bus(9 downto 7);
                 Imm_Val <= Reg_Chk_Jmp;
