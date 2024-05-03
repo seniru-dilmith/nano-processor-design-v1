@@ -47,7 +47,7 @@ begin
         -- looking for rising edges to come
         if (rising_edge(Clk_in)) then
             count <= count +1;  -- detecting rising edge count
-            if(count = 5) then  -- ration to slow down the clock
+            if(count = 200000000) then  -- ration to slow down the clock
                 clk_status <= not clk_status;
                 Clk_out <= clk_status;
                 count <= 1;  -- setting to initial state after a slow clock cycle
