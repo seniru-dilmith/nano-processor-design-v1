@@ -51,40 +51,43 @@ architecture Behavioral of Register_4bit is
               Qbar: out std_logic);
     end component;
 
-    -- Result bit of each flip flop
-    signal Q0, Q1, Q2, Q3 : std_logic;   
-    signal enable: std_logic; 
+    signal Q0, Q1, Q2, Q3 : std_logic; 
+    signal D0, D1, D2, D3 : std_logic;
+    signal result : std_logic_vector (3 downto 0);
 
 begin
 
-    enable <= Clk AND EN;
+D0 <= (D(0) AND EN) OR (Q0 AND (NOT EN));
+D1 <= (D(1) AND EN) OR (Q1 AND (NOT EN));
+D2 <= (D(2) AND EN) OR (Q2 AND (NOT EN));
+D3 <= (D(3) AND EN) OR (Q3 AND (NOT EN));
 
     -- Instantiate D flip-flops for each bit
     DFF_0: D_FF port map (
-        D => D(0),
+        D => D0,
         Res => Res,
-        Clk => enable,
+        Clk => Clk,
         Q => Q0
     );
 
     DFF_1: D_FF port map (
-        D => D(1),
+        D => D1,
         Res => Res,
-        Clk => enable,
+        Clk => Clk,
         Q => Q1
     );
 
     DFF_2: D_FF port map (
-        D => D(2),
+        D => D2,
         Res => Res,
-        Clk => enable,
+        Clk => Clk,
         Q => Q2
     );
 
     DFF_3: D_FF port map (
-        D => D(3),
+        D => D3,
         Res => Res,
-        Clk => enable,
+        Clk => Clk,
         Q => Q3
     );
 
@@ -108,6 +111,10 @@ begin
 --    end process;
 
     -- Output Q 
-    Q <= Q3 & Q2 & Q1 & Q0;
-
+    result(0) <= Q0;
+    result(1) <= Q1;
+    result(2) <= Q2;
+    result(3) <= Q3;
+    
+    Q <= result;
 end Behavioral;
